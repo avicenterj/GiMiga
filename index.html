@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contagem Regressiva</title>
     <script src="https://cdn.rawgit.com/mhuggins/countdown/2.0.0/countdown.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+        }
+        #countdown {
+            font-size: 3em;
+            color: #2C3E50;
+        }
+        .image-container {
+            margin-top: 30px;
+        }
+    </style>
 </head>
-<body style="text-align: center; font-family: Arial, sans-serif; background-color: #f7f7f7;">
-    <h1 style="color: #333;">Contagem Regressiva para Comprar o iPhone da GiMiga</h1>
-    
-    <!-- Imagem personalizada -->
-    <img src="https://raw.githubusercontent.com/avicenterj/GiMiga/abb1f14f28b193be4e8b30598c0fea35bb7def1e/resized_image.png" alt="GiMiga de iPhone" style="max-width: 100%; width: 900px; margin: 20px auto; display: block;">
+<body>
+    <h1>Contagem Regressiva para Comprar o iPhone da GiMiga</h1>
 
-    <div id="countdown" style="font-size: 3em; color: #2C3E50;"></div>
+    <!-- Exibindo a data e o contador no início -->
+    <p style="font-size: 1.2em;">A contagem regressiva começa agora:</p>
+    <div id="countdown">Carregando...</div>
 
     <script>
         // Define the target date for the countdown
@@ -39,5 +55,10 @@
             }
         }, 1000);
     </script>
+
+    <!-- Exibindo a imagem ao final -->
+    <div class="image-container">
+        <img src="https://raw.githubusercontent.com/avicenterj/GiMiga/abb1f14f28b193be4e8b30598c0fea35bb7def1e/resized_image.png" alt="GiMiga de iPhone" style="max-width: 100%; width: 900px; margin: 20px auto; display: block;">
+    </div>
 </body>
 </html>
