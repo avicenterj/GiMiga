@@ -5,19 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contagem Regressiva</title>
     <script src="https://cdn.rawgit.com/mhuggins/countdown/2.0.0/countdown.min.js"></script>
+    <!-- Link para a fonte Righteous do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <style>
         body {
             text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #FF9E00; /* Cor de fundo da imagem */
+            font-family: 'Arial', sans-serif;
+            background-color: #FFEB3B; /* Cor de fundo amarela */
             color: #fff; /* Cor do texto para contraste */
         }
         h1 {
             color: #fff;
+            font-family: 'Righteous', cursive; /* Fonte personalizada */
+            font-size: 3em; /* Ajuste do tamanho da fonte */
         }
         #countdown {
             font-size: 3em;
             color: #2C3E50;
+            font-family: 'Righteous', cursive; /* Fonte personalizada para o contador */
         }
         .image-container {
             margin-top: 30px;
@@ -28,7 +33,7 @@
     <h1>Contagem Regressiva para Comprar o iPhone da GiMiga</h1>
 
     <!-- Exibindo a data e o contador no início -->
-    <p style="font-size: 1.2em;">A contagem regressiva começa agora:</p>
+    <p style="font-size: 1.2em; font-family: 'Arial', sans-serif;">A contagem regressiva começa agora:</p>
     <div id="countdown">Carregando...</div>
 
     <script>
@@ -47,19 +52,4 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Display the countdown
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-            // If the countdown is finished
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("countdown").innerHTML = "Já é o dia!";
-            }
-        }, 1000);
-    </script>
-
-    <!-- Exibindo a imagem ao final -->
-    <div class="image-container">
-        <img src="https://raw.githubusercontent.com/avicenterj/GiMiga/abb1f14f28b193be4e8b30598c0fea35bb7def1e/resized_image.png" alt="GiMiga de iPhone" style="max-width: 100%; width: 900px; margin: 20px auto; display: block;">
-    </div>
-</body>
-</html>
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m "
