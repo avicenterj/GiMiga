@@ -12,16 +12,16 @@
             text-align: center;
             font-family: 'Arial', sans-serif;
             background-color: #FFEB3B; /* Cor de fundo amarela */
-            color: #fff; /* Cor do texto para contraste */
+            color: #000; /* Cor do texto para contraste (preto) */
         }
         h1 {
-            color: #fff;
+            color: #000; /* Título com texto preto */
             font-family: 'Righteous', cursive; /* Fonte personalizada */
             font-size: 3em; /* Ajuste do tamanho da fonte */
         }
         #countdown {
             font-size: 3em;
-            color: #2C3E50;
+            color: #000; /* Cor do contador preta */
             font-family: 'Righteous', cursive; /* Fonte personalizada para o contador */
         }
         .image-container {
@@ -52,4 +52,19 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Display the countdown
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m "
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // If the countdown is finished
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "Já é o dia!";
+            }
+        }, 1000);
+    </script>
+
+    <!-- Exibindo a imagem ao final -->
+    <div class="image-container">
+        <img src="https://raw.githubusercontent.com/avicenterj/GiMiga/abb1f14f28b193be4e8b30598c0fea35bb7def1e/resized_image.png" alt="GiMiga de iPhone" style="max-width: 100%; width: 900px; margin: 20px auto; display: block;">
+    </div>
+</body>
+</html>
