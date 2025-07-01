@@ -1,67 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contagem Regressiva</title>
-    <script src="https://cdn.rawgit.com/mhuggins/countdown/2.0.0/countdown.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <style>
-        body {
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            background-color: #FFD752; /* Cor de fundo amarela */
-            color: #000; /* Cor do texto para contraste (preto) */
-        }
-        h1 {
-            color: #000;
-            font-family: 'Righteous', cursive;
-            font-size: 3em;
-        }
-        #countdown {
-            font-size: 3em;
-            color: #2C3E50;
-            font-family: 'Righteous', cursive;
-        }
-        .image-container {
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contagem Regressiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+  <style>
+    body {
+      text-align: center;
+      background-color: #FFD752;
+      color: #000;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 30px 10px;
+    }
+
+    h1 {
+      color: #000;
+      font-family: 'Righteous', cursive;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .flip-box {
+      background-color: #2C3E50;
+      color: #fff;
+      font-family: 'Righteous', cursive;
+      font-size: 2.5em;
+      padding: 20px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px #111;
+      width: 90px;
+    }
+
+    .flip-label {
+      font-size: 0.5em;
+      margin-top: 10px;
+      color: #fff;
+    }
+
+    .image-container {
+      margin-top: 40px;
+    }
+
+    img {
+      max-width: 100%;
+      width: 900px;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
-    <h1>Contagem Regressiva para Comprar o iPhone da GiMiga</h1>
 
-    <p style="font-size: 1.2em; font-family: 'Arial', sans-serif;">A contagem regressiva começa agora:</p>
-    <div id="countdown">Carregando...</div>
+  <h1>Contagem Regressiva para Comprar o iPhone da GiMiga</h1>
+  <p>A contagem regressiva começa agora:</p>
 
-    <script>
-        // Define the target date for the countdown
-        var targetDate = new Date("July 28, 2025 00:00:00").getTime();
-
-        // Function to update the countdown
-        var countdownInterval = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = targetDate - now;
-
-            // Calculate time remaining
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the countdown
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-            // If the countdown is finished
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("countdown").innerHTML = "Já é o dia!";
-            }
-        }, 1000);  // Atualiza a cada 1 segundo
-    </script>
-
-    <div class="image-container">
-        <img src="https://raw.githubusercontent.com/avicenterj/GiMiga/abb1f14f28b193be4e8b30598c0fea35bb7def1e/resized_image.png" alt="GiMiga de iPhone" style="max-width: 100%; width: 900px; margin: 20px auto; display: block;">
+  <div class="countdown-container">
+    <div class="flip-box">
+      <div id="days">00</div>
+      <div class="flip-label">Days</div>
     </div>
+    <div class="flip-box">
+      <div id="hours">00</div>
+      <div class="flip-label">Hours</div>
+    </div>
+    <div class="flip-box">
+      <div id="minutes">00</div>
+      <div class="flip-label">Minutes</div>
+    </div>
+    <div class="flip-box">
+      <div id="seconds">00</div>
+      <div class="flip-label">Seconds</div>
+    </div>
+  </div>
+
+  <script>
+    var targetDate = new Date("July 28, 2025 00:00:00").getTime();
+
+    function updateCountdown() {
+      var now = new Date().getTime();
+      var distance = targetDate - now;
+
+      if (distance <= 0) {
+        document.querySelector('.countdown-container').innerHTML = "<h2>Já é o dia!</h2>";
+        return;
+      }
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = String(days).padStart(2, '0');
+      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <div class="image-container">
+    <img src="https://raw.githubusercontent.com/avicenterj/GiMiga/abb1f14f28b193be4e8b30598c0fea35bb7def1e/resized_image.png" alt="GiMiga de iPhone">
+  </div>
 </body>
 </html>
