@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contagem Regressiva</title>
     <script src="https://cdn.rawgit.com/mhuggins/countdown/2.0.0/countdown.min.js"></script>
-    <!-- Link para a fonte Righteous do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <style>
         body {
             text-align: center;
             font-family: 'Arial', sans-serif;
-            background-color: #FFEB3B; /* Cor de fundo amarela */
+            background-color: #FFD752; /* Cor de fundo amarela */
             color: #000; /* Cor do texto para contraste (preto) */
         }
         h1 {
-            color: #000; /* Título com texto preto */
-            font-family: 'Righteous', cursive; /* Fonte personalizada */
-            font-size: 3em; /* Ajuste do tamanho da fonte */
+            color: #000;
+            font-family: 'Righteous', cursive;
+            font-size: 3em;
         }
         #countdown {
             font-size: 3em;
-            color: #000; /* Cor do contador preta */
-            font-family: 'Righteous', cursive; /* Fonte personalizada para o contador */
+            color: #2C3E50;
+            font-family: 'Righteous', cursive;
         }
         .image-container {
             margin-top: 30px;
@@ -32,7 +31,6 @@
 <body>
     <h1>Contagem Regressiva para Comprar o iPhone da GiMiga</h1>
 
-    <!-- Exibindo a data e o contador no início -->
     <p style="font-size: 1.2em; font-family: 'Arial', sans-serif;">A contagem regressiva começa agora:</p>
     <div id="countdown">Carregando...</div>
 
@@ -59,10 +57,9 @@
                 clearInterval(countdownInterval);
                 document.getElementById("countdown").innerHTML = "Já é o dia!";
             }
-        }, 1000);
+        }, 1000);  // Atualiza a cada 1 segundo
     </script>
 
-    <!-- Exibindo a imagem ao final -->
     <div class="image-container">
         <img src="https://raw.githubusercontent.com/avicenterj/GiMiga/abb1f14f28b193be4e8b30598c0fea35bb7def1e/resized_image.png" alt="GiMiga de iPhone" style="max-width: 100%; width: 900px; margin: 20px auto; display: block;">
     </div>
